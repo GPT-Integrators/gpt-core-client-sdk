@@ -38,7 +38,7 @@ Download API collections for your preferred client:
 | Tool | Download |
 |------|----------|
 | [Postman](https://www.postman.com) | [Download Collection](/collections/postman/gpt-core-client.postman_collection.json) |
-| [Bruno](https://www.usebruno.com) | [Browse Folder](/collections/bruno/client/) - Clone the Bruno folder |
+| [Bruno](https://www.usebruno.com) | [Browse on GitHub](https://github.com/GPT-Integrators/gpt-core-client-sdk/tree/main/collections/bruno/client) |
 | [Insomnia](https://insomnia.rest) | [Download Collection](/collections/insomnia/gpt-core-client.insomnia.json) |
 
 ## Packages
@@ -64,7 +64,7 @@ Download API collections for your preferred client:
 
 ## License
 
-Proprietary - All rights reserved. &copy; 2025 GPT Integrators.
+Proprietary - All rights reserved. &copy; 2026 GPT Integrators.
 
 ## Support
 
