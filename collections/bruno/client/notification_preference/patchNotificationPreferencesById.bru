@@ -1,0 +1,38 @@
+meta {
+  name: Update notification preferences
+  type: http
+  seq: 1
+}
+
+patch {
+  url: {{baseUrl}}/notification-preferences/{id}
+  body: json
+  auth: inherit
+}
+
+query {
+  ~include: 
+  ~fields: 
+}
+
+body:json {
+  {
+    "data": {
+      "attributes": {
+        "channels": null,
+        "preferences": null
+      },
+      "id": "string",
+      "relationships": {},
+      "type": null
+    }
+  }
+}
+
+docs {
+  Updates specific fields of an existing resource.
+
+**Authentication:** Required - Bearer token or API key
+**Rate Limit:** 100 requests per minute
+
+}

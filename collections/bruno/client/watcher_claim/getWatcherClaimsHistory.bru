@@ -1,0 +1,24 @@
+meta {
+  name: List history
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/watcher/claims/history
+  body: none
+  auth: inherit
+}
+
+query {
+  ~filter: 
+  ~sort: 
+  ~include: 
+  ~fields: 
+  workspace_id: 
+  file_hash: 
+}
+
+docs {
+  Check if a file hash was already processed in this workspace
+}

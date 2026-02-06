@@ -1,0 +1,24 @@
+meta {
+  name: List meta
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/permissions/meta
+  body: none
+  auth: inherit
+}
+
+query {
+  ~include: 
+  ~fields: 
+}
+
+docs {
+  Lists resources with optional filtering, sorting, and pagination.
+
+**Authentication:** Required - Bearer token or API key
+**Rate Limit:** 100 requests per minute
+
+}

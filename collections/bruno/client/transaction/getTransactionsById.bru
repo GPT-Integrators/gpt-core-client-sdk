@@ -1,0 +1,20 @@
+meta {
+  name: Get transactions
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/transactions/{id}
+  body: none
+  auth: inherit
+}
+
+query {
+  ~include: 
+  ~fields: 
+}
+
+docs {
+  Read user's transactions
+}

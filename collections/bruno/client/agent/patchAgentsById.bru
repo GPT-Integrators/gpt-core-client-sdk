@@ -1,0 +1,46 @@
+meta {
+  name: Update agents
+  type: http
+  seq: 1
+}
+
+patch {
+  url: {{baseUrl}}/agents/{id}
+  body: json
+  auth: inherit
+}
+
+query {
+  ~include: 
+  ~fields: 
+}
+
+body:json {
+  {
+    "data": {
+      "attributes": {
+        "default_instructions": null,
+        "description": null,
+        "domain": null,
+        "instructions": null,
+        "is_system": null,
+        "name": null,
+        "prompt_template": null,
+        "schema_definition": null,
+        "tags": null,
+        "version": null
+      },
+      "id": "string",
+      "relationships": {},
+      "type": null
+    }
+  }
+}
+
+docs {
+  Updates specific fields of an existing resource.
+
+**Authentication:** Required - Bearer token or API key
+**Rate Limit:** 100 requests per minute
+
+}

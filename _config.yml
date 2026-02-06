@@ -1,0 +1,8 @@
+# GitHub Pages configuration
+theme: jekyll-theme-minimal
+title: GPT Core Client SDK
+description: TypeScript SDK for GPT Core Platform
+show_downloads: false
+google_analytics: false
+github:
+  is_project_page: false

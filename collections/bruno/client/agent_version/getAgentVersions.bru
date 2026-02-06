@@ -1,0 +1,27 @@
+meta {
+  name: List agent versions
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/agent-versions
+  body: none
+  auth: inherit
+}
+
+query {
+  ~filter: 
+  ~sort: 
+  ~include: 
+  ~fields: 
+  ~agent_id: 
+}
+
+docs {
+  Lists resources with optional filtering, sorting, and pagination.
+
+**Authentication:** Required - Bearer token or API key
+**Rate Limit:** 100 requests per minute
+
+}

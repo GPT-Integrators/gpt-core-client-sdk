@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "GPT Core Client API",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

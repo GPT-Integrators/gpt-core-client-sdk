@@ -1,0 +1,36 @@
+meta {
+  name: Create payments
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/payments
+  body: json
+  auth: inherit
+}
+
+query {
+  ~include: 
+  ~fields: 
+}
+
+body:json {
+  {
+    "data": {
+      "attributes": {
+        "amount": 0,
+        "currency": null,
+        "description": null,
+        "source": "string",
+        "tenant_id": "00000000-0000-0000-0000-000000000000"
+      },
+      "relationships": {},
+      "type": null
+    }
+  }
+}
+
+docs {
+  Process a payment
+}

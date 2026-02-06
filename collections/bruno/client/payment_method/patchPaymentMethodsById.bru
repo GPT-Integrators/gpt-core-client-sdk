@@ -1,0 +1,38 @@
+meta {
+  name: Update payment methods
+  type: http
+  seq: 1
+}
+
+patch {
+  url: {{baseUrl}}/payment-methods/{id}
+  body: json
+  auth: inherit
+}
+
+query {
+  ~include: 
+  ~fields: 
+}
+
+body:json {
+  {
+    "data": {
+      "attributes": {
+        "is_default": null,
+        "nickname": null
+      },
+      "id": "string",
+      "relationships": {},
+      "type": null
+    }
+  }
+}
+
+docs {
+  Updates specific fields of an existing resource.
+
+**Authentication:** Required - Bearer token or API key
+**Rate Limit:** 100 requests per minute
+
+}

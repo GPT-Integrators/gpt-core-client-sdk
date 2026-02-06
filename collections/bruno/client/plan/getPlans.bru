@@ -1,0 +1,26 @@
+meta {
+  name: List plans
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/plans
+  body: none
+  auth: inherit
+}
+
+query {
+  ~filter: 
+  ~sort: 
+  ~include: 
+  ~fields: 
+}
+
+docs {
+  Lists resources with optional filtering, sorting, and pagination.
+
+**Authentication:** Required - Bearer token or API key
+**Rate Limit:** 100 requests per minute
+
+}

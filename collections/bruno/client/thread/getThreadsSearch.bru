@@ -1,0 +1,25 @@
+meta {
+  name: List search
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/threads/search
+  body: none
+  auth: inherit
+}
+
+query {
+  ~include: 
+  ~fields: 
+  query: 
+}
+
+docs {
+  Lists resources with optional filtering, sorting, and pagination.
+
+**Authentication:** Required - Bearer token or API key
+**Rate Limit:** 100 requests per minute
+
+}

@@ -1,0 +1,40 @@
+meta {
+  name: Update verification
+  type: http
+  seq: 1
+}
+
+patch {
+  url: {{baseUrl}}/extraction/documents/{id}/verification
+  body: json
+  auth: inherit
+}
+
+query {
+  ~include: 
+  ~fields: 
+}
+
+body:json {
+  {
+    "data": {
+      "attributes": {
+        "avg_confidence": null,
+        "last_verified_at": null,
+        "verification_status": null,
+        "verified_by_user_id": null
+      },
+      "id": "string",
+      "relationships": {},
+      "type": null
+    }
+  }
+}
+
+docs {
+  Updates specific fields of an existing resource.
+
+**Authentication:** Required - Bearer token or API key
+**Rate Limit:** 100 requests per minute
+
+}

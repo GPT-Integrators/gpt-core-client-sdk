@@ -1,0 +1,28 @@
+meta {
+  name: Create events
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/watcher/events
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "data": {
+      "events": [
+        {}
+      ],
+      "machine_id": "string",
+      "machine_name": "string",
+      "workspace_id": "00000000-0000-0000-0000-000000000000"
+    }
+  }
+}
+
+docs {
+  Create multiple events in batch
+}
