@@ -17,20 +17,20 @@ import { GPTCore } from '@gpt-core/client';
 
 const client = new GPTCore({
   apiKey: process.env.GPT_API_KEY,
-  baseURL: 'https://api.gptplatform.com'
+  baseURL: 'https://api.gptintegrators.com'
 });
 ```
 
 ### API Key
 
-Get your API key from the [Platform Dashboard](https://dashboard.gptplatform.com).
+Get your API key from the [Platform Dashboard](https://dashboard.gptintegrators.com).
 
 ### Environment Variables
 
 ```bash
 # .env
 GPT_API_KEY=sk_live_your_key_here
-GPT_BASE_URL=https://api.gptplatform.com
+GPT_BASE_URL=https://api.gptintegrators.com
 ```
 
 ## Basic Usage
@@ -94,10 +94,10 @@ try {
 
 ## Next Steps
 
-- [Full API Documentation](/docs/client)
-- [API Collections](/collections) for Postman/Bruno/Insomnia
+- [Full API Documentation](https://gpt-integrators.github.io/gpt-core-client-sdk/docs/client)
+- [API Collections](https://gpt-integrators.github.io/gpt-core-client-sdk/collections) for Postman/Bruno/Insomnia
 
 ## Need Help?
 
-- Email: [support@gptplatform.com](mailto:support@gptplatform.com)
-- [API Status](https://status.gptplatform.com)
+- Email: [support@gptintegrators.com](mailto:support@gptintegrators.com)
+- [API Status](https://status.gptintegrators.com)

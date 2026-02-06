@@ -13,7 +13,7 @@ import { GPTCore } from '@gpt-core/client';
 
 const client = new GPTCore({
   apiKey: process.env.GPT_API_KEY,
-  baseURL: 'https://api.gptplatform.com'
+  baseURL: 'https://api.gptintegrators.com'
 });
 
 // Extract documents
@@ -28,8 +28,8 @@ console.log(result.data);
 
 ## Documentation
 
-- **[API Reference](/docs/client)** - Interactive API docs with Try It
-- **[Quick Start Guide](/quickstart)** - Getting started guide
+- **[API Reference](https://gpt-integrators.github.io/gpt-core-client-sdk/docs/client)** - Interactive API docs with Try It
+- **[Quick Start Guide](https://gpt-integrators.github.io/gpt-core-client-sdk/quickstart)** - Getting started guide
 
 ## Tooling
 
@@ -37,9 +37,9 @@ Download API collections for your preferred client:
 
 | Tool | Download |
 |------|----------|
-| [Postman](https://www.postman.com) | [Download Collection](/collections/postman/gpt-core-client.postman_collection.json) |
+| [Postman](https://www.postman.com) | [Download Collection](https://gpt-integrators.github.io/gpt-core-client-sdk/collections/postman/gpt-core-client.postman_collection.json) |
 | [Bruno](https://www.usebruno.com) | [Browse on GitHub](https://github.com/GPT-Integrators/gpt-core-client-sdk/tree/main/collections/bruno/client) |
-| [Insomnia](https://insomnia.rest) | [Download Collection](/collections/insomnia/gpt-core-client.insomnia.json) |
+| [Insomnia](https://insomnia.rest) | [Download Collection](https://gpt-integrators.github.io/gpt-core-client-sdk/collections/insomnia/gpt-core-client.insomnia.json) |
 
 ## Packages
 
@@ -49,9 +49,9 @@ Download API collections for your preferred client:
 
 ## Links
 
-- **[Platform Dashboard](https://dashboard.gptplatform.com)** - Web interface
-- **[API Status](https://status.gptplatform.com)** - Uptime monitoring
-- **[Support](mailto:support@gptplatform.com)** - Get help
+- **[Platform Dashboard](https://dashboard.gptintegrators.com)** - Web interface
+- **[API Status](https://status.gptintegrators.com)** - Uptime monitoring
+- **[Support](mailto:support@gptintegrators.com)** - Get help
 
 ## Features
 
@@ -68,4 +68,4 @@ Proprietary - All rights reserved. &copy; 2026 GPT Integrators.
 
 ## Support
 
-For support, email [support@gptplatform.com](mailto:support@gptplatform.com) or contact us through the platform dashboard.
+For support, email [support@gptintegrators.com](mailto:support@gptintegrators.com) or contact us through the platform dashboard.
