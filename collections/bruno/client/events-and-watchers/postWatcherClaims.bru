@@ -1,0 +1,33 @@
+meta {
+  name: Create claims
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/watcher/claims
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "data": {
+      "file_hash": "string",
+      "file_name": "string",
+      "file_path": "string",
+      "file_size": null,
+      "machine_id": "string",
+      "machine_name": "string",
+      "workspace_id": "00000000-0000-0000-0000-000000000000"
+    }
+  }
+}
+
+docs {
+  Creates a new resource. Returns the created resource with generated ID.
+
+**Authentication:** Required - Bearer token or API key
+**Rate Limit:** 100 requests per minute
+
+}

@@ -1,0 +1,24 @@
+meta {
+  name: Delete saved
+  type: http
+  seq: 1
+}
+
+delete {
+  url: {{baseUrl}}/search/saved/{id}
+  body: none
+  auth: inherit
+}
+
+query {
+  ~include: 
+  ~fields: 
+}
+
+docs {
+  Deletes a resource permanently. This action cannot be undone.
+
+**Authentication:** Required - Bearer token or API key
+**Rate Limit:** 100 requests per minute
+
+}

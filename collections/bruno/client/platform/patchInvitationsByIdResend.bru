@@ -1,0 +1,37 @@
+meta {
+  name: Update resend
+  type: http
+  seq: 1
+}
+
+patch {
+  url: {{baseUrl}}/invitations/{id}/resend
+  body: json
+  auth: inherit
+}
+
+query {
+  ~include: 
+  ~fields: 
+}
+
+body:json {
+  {
+    "data": {
+      "attributes": {
+        "application_id": null
+      },
+      "id": "string",
+      "relationships": {},
+      "type": null
+    }
+  }
+}
+
+docs {
+  Updates specific fields of an existing resource.
+
+**Authentication:** Required - Bearer token or API key
+**Rate Limit:** 100 requests per minute
+
+}

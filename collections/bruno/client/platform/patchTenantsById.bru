@@ -1,0 +1,45 @@
+meta {
+  name: Update tenants
+  type: http
+  seq: 1
+}
+
+patch {
+  url: {{baseUrl}}/tenants/{id}
+  body: json
+  auth: inherit
+}
+
+query {
+  ~include: 
+  ~fields: 
+}
+
+body:json {
+  {
+    "data": {
+      "attributes": {
+        "badge_url": null,
+        "kind": null,
+        "logo_url": null,
+        "name": null,
+        "parent_id": null,
+        "plan_tier": null,
+        "slug": null,
+        "training_price_credits": null,
+        "vanity_slug": null
+      },
+      "id": "string",
+      "relationships": {},
+      "type": null
+    }
+  }
+}
+
+docs {
+  Updates specific fields of an existing resource.
+
+**Authentication:** Required - Bearer token or API key
+**Rate Limit:** 100 requests per minute
+
+}

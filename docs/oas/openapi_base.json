@@ -51505,6 +51505,26 @@
                       "attributes": {
                         "additionalProperties": false,
                         "properties": {
+                          "machine_id": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "machine_name": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
                           "reset_retry_count": {
                             "anyOf": [
                               {
@@ -100084,16 +100104,6 @@
             },
             "style": "form",
             "explode": true
-          },
-          {
-            "in": "query",
-            "name": "application_id",
-            "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            },
-            "style": "form"
           }
         ],
         "responses": {
@@ -110645,5 +110655,468 @@
       "url": "https://api.yourdomain.com"
     }
   ],
-  "tags": []
+  "tags": [
+    {
+      "name": "user",
+      "x-displayName": "User"
+    },
+    {
+      "name": "user_profile",
+      "x-displayName": "User Profile"
+    },
+    {
+      "name": "api_key",
+      "x-displayName": "Api Key"
+    },
+    {
+      "name": "token",
+      "x-displayName": "Token"
+    },
+    {
+      "name": "tenant",
+      "x-displayName": "Tenant"
+    },
+    {
+      "name": "tenant-membership",
+      "x-displayName": "Tenant Membership"
+    },
+    {
+      "name": "workspace",
+      "x-displayName": "Workspace"
+    },
+    {
+      "name": "workspace-membership",
+      "x-displayName": "Workspace Membership"
+    },
+    {
+      "name": "application",
+      "x-displayName": "Application"
+    },
+    {
+      "name": "invitation",
+      "x-displayName": "Invitation"
+    },
+    {
+      "name": "role",
+      "x-displayName": "Role"
+    },
+    {
+      "name": "config",
+      "x-displayName": "Config"
+    },
+    {
+      "name": "config_enum",
+      "x-displayName": "Config Enum"
+    },
+    {
+      "name": "audit-log",
+      "x-displayName": "Audit Log"
+    },
+    {
+      "name": "agent",
+      "x-displayName": "Agent"
+    },
+    {
+      "name": "agent_version",
+      "x-displayName": "Agent Version"
+    },
+    {
+      "name": "agent_version_comparison",
+      "x-displayName": "Agent Version Comparison"
+    },
+    {
+      "name": "agent_version_revision",
+      "x-displayName": "Agent Version Revision"
+    },
+    {
+      "name": "agent_stats",
+      "x-displayName": "Agent Stats"
+    },
+    {
+      "name": "agent_usage",
+      "x-displayName": "Agent Usage"
+    },
+    {
+      "name": "agent_test_result",
+      "x-displayName": "Agent Test Result"
+    },
+    {
+      "name": "training_session",
+      "x-displayName": "Training Session"
+    },
+    {
+      "name": "training_example",
+      "x-displayName": "Training Example"
+    },
+    {
+      "name": "training_analytics",
+      "x-displayName": "Training Analytics"
+    },
+    {
+      "name": "agent_training_stats",
+      "x-displayName": "Agent Training Stats"
+    },
+    {
+      "name": "extraction_document",
+      "x-displayName": "Extraction Document"
+    },
+    {
+      "name": "extraction_result",
+      "x-displayName": "Extraction Result"
+    },
+    {
+      "name": "extraction_batch",
+      "x-displayName": "Extraction Batch"
+    },
+    {
+      "name": "extraction_export",
+      "x-displayName": "Extraction Export"
+    },
+    {
+      "name": "field_template",
+      "x-displayName": "Field Template"
+    },
+    {
+      "name": "field_mapping_result",
+      "x-displayName": "Field Mapping Result"
+    },
+    {
+      "name": "field_mapping_confirmation",
+      "x-displayName": "Field Mapping Confirmation"
+    },
+    {
+      "name": "schema_discovery",
+      "x-displayName": "Schema Discovery"
+    },
+    {
+      "name": "document_chunk",
+      "x-displayName": "Document Chunk"
+    },
+    {
+      "name": "document_stats",
+      "x-displayName": "Document Stats"
+    },
+    {
+      "name": "workspace_document_stats",
+      "x-displayName": "Workspace Document Stats"
+    },
+    {
+      "name": "tenant_document_stats",
+      "x-displayName": "Tenant Document Stats"
+    },
+    {
+      "name": "bulk_reprocess_result",
+      "x-displayName": "Bulk Reprocess Result"
+    },
+    {
+      "name": "bulk_dismissal_result",
+      "x-displayName": "Bulk Dismissal Result"
+    },
+    {
+      "name": "thread",
+      "x-displayName": "Thread"
+    },
+    {
+      "name": "thread_stats",
+      "x-displayName": "Thread Stats"
+    },
+    {
+      "name": "thread_workspace_stats",
+      "x-displayName": "Thread Workspace Stats"
+    },
+    {
+      "name": "message",
+      "x-displayName": "Message"
+    },
+    {
+      "name": "conversation",
+      "x-displayName": "Conversation"
+    },
+    {
+      "name": "embedding",
+      "x-displayName": "Embedding"
+    },
+    {
+      "name": "graph_node",
+      "x-displayName": "Graph Node"
+    },
+    {
+      "name": "graph_edge",
+      "x-displayName": "Graph Edge"
+    },
+    {
+      "name": "llm_analytics",
+      "x-displayName": "Llm Analytics"
+    },
+    {
+      "name": "wallet",
+      "x-displayName": "Wallet"
+    },
+    {
+      "name": "credit_package",
+      "x-displayName": "Credit Package"
+    },
+    {
+      "name": "plan",
+      "x-displayName": "Plan"
+    },
+    {
+      "name": "transaction",
+      "x-displayName": "Transaction"
+    },
+    {
+      "name": "payment",
+      "x-displayName": "Payment"
+    },
+    {
+      "name": "payment_method",
+      "x-displayName": "Payment Method"
+    },
+    {
+      "name": "invoice",
+      "x-displayName": "Invoice"
+    },
+    {
+      "name": "bucket",
+      "x-displayName": "Bucket"
+    },
+    {
+      "name": "object",
+      "x-displayName": "Object"
+    },
+    {
+      "name": "presigned_url",
+      "x-displayName": "Presigned Url"
+    },
+    {
+      "name": "storage_stats",
+      "x-displayName": "Storage Stats"
+    },
+    {
+      "name": "search",
+      "x-displayName": "Search"
+    },
+    {
+      "name": "saved_search",
+      "x-displayName": "Saved Search"
+    },
+    {
+      "name": "search_analytics",
+      "x-displayName": "Search Analytics"
+    },
+    {
+      "name": "webhook_config",
+      "x-displayName": "Webhook Config"
+    },
+    {
+      "name": "webhook_delivery",
+      "x-displayName": "Webhook Delivery"
+    },
+    {
+      "name": "email_template",
+      "x-displayName": "Email Template"
+    },
+    {
+      "name": "notification_preference",
+      "x-displayName": "Notification Preference"
+    },
+    {
+      "name": "notification_method",
+      "x-displayName": "Notification Method"
+    },
+    {
+      "name": "notification_log",
+      "x-displayName": "Notification Log"
+    },
+    {
+      "name": "permission",
+      "x-displayName": "Permission"
+    },
+    {
+      "name": "permission_meta",
+      "x-displayName": "Permission Meta"
+    },
+    {
+      "name": "permission_preset",
+      "x-displayName": "Permission Preset"
+    },
+    {
+      "name": "legal_document",
+      "x-displayName": "Legal Document"
+    },
+    {
+      "name": "legal_acceptance",
+      "x-displayName": "Legal Acceptance"
+    },
+    {
+      "name": "consent_record",
+      "x-displayName": "Consent Record"
+    },
+    {
+      "name": "watcher_event",
+      "x-displayName": "Watcher Event"
+    },
+    {
+      "name": "watcher_claim",
+      "x-displayName": "Watcher Claim"
+    },
+    {
+      "name": "tenant_stats",
+      "x-displayName": "Tenant Stats"
+    },
+    {
+      "name": "operation_success",
+      "x-displayName": "Operation Success"
+    }
+  ],
+  "x-tagGroups": [
+    {
+      "name": "Authentication & Identity",
+      "tags": [
+        "user",
+        "user_profile",
+        "api_key",
+        "token"
+      ]
+    },
+    {
+      "name": "Platform",
+      "tags": [
+        "tenant",
+        "tenant-membership",
+        "workspace",
+        "workspace-membership",
+        "application",
+        "invitation",
+        "role",
+        "config",
+        "config_enum",
+        "audit-log"
+      ]
+    },
+    {
+      "name": "AI Agents",
+      "tags": [
+        "agent",
+        "agent_version",
+        "agent_version_comparison",
+        "agent_version_revision",
+        "agent_stats",
+        "agent_usage",
+        "agent_test_result",
+        "training_session",
+        "training_example",
+        "training_analytics",
+        "agent_training_stats"
+      ]
+    },
+    {
+      "name": "Document Extraction",
+      "tags": [
+        "extraction_document",
+        "extraction_result",
+        "extraction_batch",
+        "extraction_export",
+        "field_template",
+        "field_mapping_result",
+        "field_mapping_confirmation",
+        "schema_discovery",
+        "document_chunk",
+        "document_stats",
+        "workspace_document_stats",
+        "tenant_document_stats",
+        "bulk_reprocess_result",
+        "bulk_dismissal_result"
+      ]
+    },
+    {
+      "name": "Chat & Conversations",
+      "tags": [
+        "thread",
+        "thread_stats",
+        "thread_workspace_stats",
+        "message",
+        "conversation"
+      ]
+    },
+    {
+      "name": "AI & Knowledge",
+      "tags": [
+        "embedding",
+        "graph_node",
+        "graph_edge",
+        "llm_analytics"
+      ]
+    },
+    {
+      "name": "Billing & Payments",
+      "tags": [
+        "wallet",
+        "credit_package",
+        "plan",
+        "transaction",
+        "payment",
+        "payment_method",
+        "invoice"
+      ]
+    },
+    {
+      "name": "Storage",
+      "tags": [
+        "bucket",
+        "object",
+        "presigned_url",
+        "storage_stats"
+      ]
+    },
+    {
+      "name": "Search",
+      "tags": [
+        "search",
+        "saved_search",
+        "search_analytics"
+      ]
+    },
+    {
+      "name": "Communication",
+      "tags": [
+        "webhook_config",
+        "webhook_delivery",
+        "email_template",
+        "notification_preference",
+        "notification_method",
+        "notification_log"
+      ]
+    },
+    {
+      "name": "Permissions",
+      "tags": [
+        "permission",
+        "permission_meta",
+        "permission_preset"
+      ]
+    },
+    {
+      "name": "Legal & Compliance",
+      "tags": [
+        "legal_document",
+        "legal_acceptance",
+        "consent_record"
+      ]
+    },
+    {
+      "name": "Events & Watchers",
+      "tags": [
+        "watcher_event",
+        "watcher_claim"
+      ]
+    },
+    {
+      "name": "Platform Stats",
+      "tags": [
+        "tenant_stats",
+        "operation_success"
+      ]
+    }
+  ]
 }

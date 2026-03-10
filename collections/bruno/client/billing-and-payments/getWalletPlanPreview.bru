@@ -1,0 +1,21 @@
+meta {
+  name: List preview
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/wallet/plan/preview
+  body: none
+  auth: inherit
+}
+
+query {
+  ~include: 
+  ~fields: 
+  plan_slug: 
+}
+
+docs {
+  Preview the cost and effective date of a plan change
+}

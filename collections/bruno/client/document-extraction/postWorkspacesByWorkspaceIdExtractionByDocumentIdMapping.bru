@@ -1,0 +1,39 @@
+meta {
+  name: Create mapping
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/workspaces/{workspace_id}/extraction/{document_id}/mapping
+  body: json
+  auth: inherit
+}
+
+query {
+  ~include: 
+  ~fields: 
+}
+
+body:json {
+  {
+    "data": {
+      "attributes": {
+        "add_to_schema": null,
+        "confirmed": null,
+        "ignored_fields": null,
+        "mappings": null
+      },
+      "relationships": {},
+      "type": null
+    }
+  }
+}
+
+docs {
+  Creates a new resource. Returns the created resource with generated ID.
+
+**Authentication:** Required - Bearer token or API key
+**Rate Limit:** 100 requests per minute
+
+}

@@ -1,0 +1,41 @@
+meta {
+  name: Create config enums
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/extraction/config-enums
+  body: json
+  auth: inherit
+}
+
+query {
+  ~include: 
+  ~fields: 
+}
+
+body:json {
+  {
+    "data": {
+      "attributes": {
+        "description": null,
+        "is_active": null,
+        "label": "string",
+        "sort_order": null,
+        "type": "string",
+        "value": "string"
+      },
+      "relationships": {},
+      "type": null
+    }
+  }
+}
+
+docs {
+  Creates a new resource. Returns the created resource with generated ID.
+
+**Authentication:** Required - Bearer token or API key
+**Rate Limit:** 100 requests per minute
+
+}

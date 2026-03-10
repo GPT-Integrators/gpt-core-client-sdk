@@ -1,0 +1,24 @@
+meta {
+  name: Get usage
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/agents/{id}/usage
+  body: none
+  auth: inherit
+}
+
+query {
+  ~include: 
+  ~fields: 
+}
+
+docs {
+  Retrieves a single resource by ID.
+
+**Authentication:** Required - Bearer token or API key
+**Rate Limit:** 100 requests per minute
+
+}

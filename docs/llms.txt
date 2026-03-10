@@ -1,7 +1,7 @@
 # @gpt-core/client
 
 > TypeScript SDK for GPT Core - document extraction, AI agents, and workspace management.
-> Version: 1.1
+> Version: 0.11.0
 
 ## Installation
 
@@ -9,643 +9,407 @@
 npm install @gpt-core/client
 ```
 
-## Setup
+## Quick Start
 
 ```typescript
-import { client } from '@gpt-core/client';
+import { GptClient } from '@gpt-core/client';
 
-client.setConfig({
-  baseUrl: 'https://api.example.com',
-  headers: {
-    Authorization: 'Bearer YOUR_TOKEN',
-  },
+const client = new GptClient({
+  baseUrl: 'https://api.gpt-core.com',
+  apiKey: 'sk_app_...', // or token: 'jwt_token'
 });
 ```
 
-## Agent stats
-
-- `getAgentsByIdStats()` - Get stats
-
-## Agent test result
-
-- `postAgent-test-results()` - Create agent test results
-
-## Agent training stats
-
-- `getAgentsByIdTraining-stats()` - Get training stats
-
-## Agent usage
-
-- `getAgentsByIdUsage()` - Get usage
-- `getAgentsUsage()` - List usage
-
-## Agent version comparison
-
-- `postAgent-version-comparisons()` - Create agent version comparisons
-
-## Agent version revision
-
-- `getAgent-version-revisions()` - List agent version revisions
-- `getAgent-version-revisionsById()` - Get agent version revisions
-
-## AI Agents
-
-- `getAgent-versions()` - List agent versions
-- `getAgent-versionsById()` - Get agent versions
-- `getAgent-versionsByIdMetrics()` - Get metrics
-- `getAgent-versionsByIdRevisions()` - Get revisions
-- `getAgents()` - List agents
-- `getAgentsById()` - Get agents
-- `getAgentsByIdSchema-versions()` - Get schema versions
-- `getAgentsByIdTraining-examples()` - Get training examples
-- `postAgent-versions()` - Create agent versions
-- `postAgent-versionsByIdAdd-system-field()` - Create add system field
-- `postAgent-versionsByIdRemove-system-field()` - Create remove system field
-- `postAgent-versionsByIdSet-system-fields()` - Create set system fields
-- `postAgents()` - Create agents
-- `postAgentsByIdAnalyze-training()` - Create analyze training
-- `postAgentsByIdClone()` - Create clone
-- `postAgentsByIdDiscover-schema()` - Create discover schema
-- `postAgentsByIdExport()` - Create export
-- `postAgentsByIdPublish-version()` - Create publish version
-- `postAgentsByIdRestore-version()` - Create restore version
-- `postAgentsByIdSchema-versions()` - Create schema versions
-- `postAgentsByIdSchema-versionsByVersionIdActivate()` - Create activate
-- `postAgentsByIdTeach()` - Create teach
-- `postAgentsByIdTest()` - Create test
-- `postAgentsByIdValidate()` - Create validate
-- `postAgentsClone-for-workspace()` - Create clone for workspace
-- `postAgentsDiscover-schema()` - Create discover schema
-- `postAgentsImport()` - Create import
-- `postAgentsPredict()` - Create predict
-- `patchAgentsById()` - Update agents
-- `patchAgentsByIdSchema-versionsByVersionId()` - Update schema versions
-- `deleteAgent-versionsById()` - Delete agent versions
-- `deleteAgentsById()` - Delete agents
-- `deleteAgentsByIdTraining-examplesByExampleId()` - Delete training examples
-
-## AI Training
-
-- `getTraining-examples()` - List training examples
-- `getTraining-examplesById()` - Get training examples
-- `getTraining-sessionsAgentsByAgentIdSessions()` - Get sessions
-- `getTraining-sessionsById()` - Get training sessions
-- `postTraining-examples()` - Create training examples
-- `postTraining-examplesBulk()` - Create bulk
-- `postTraining-examplesBulk-delete()` - Create bulk delete
-- `postTraining-examplesSearch()` - Create search
-- `patchTraining-examplesById()` - Update training examples
-- `deleteTraining-examplesById()` - Delete training examples
-- `deleteTraining-sessionsById()` - Delete training sessions
-
-## Analytics
-
-- `getLlmAnalytics()` - List llm analytics
-- `getLlmAnalyticsById()` - Get llm analytics
-- `getLlmAnalyticsCosts()` - List costs
-- `getLlmAnalyticsPlatform()` - List platform
-- `getLlmAnalyticsSummary()` - List summary
-- `getLlmAnalyticsUsage()` - List usage
-- `getLlmAnalyticsWorkspace()` - List workspace
-- `postLlmAnalytics()` - Create llm analytics
-
-## API Keys
-
-- `getApi-keys()` - List api keys
-- `getApi-keysActive()` - List active
-- `getApi-keysById()` - Get api keys
-- `getApi-keysStats()` - List stats
-- `postApi-keys()` - Create api keys
-- `patchApi-keysById()` - Update api keys
-- `patchApi-keysByIdAllocate()` - Update allocate
-- `patchApi-keysByIdReset-period()` - Update reset period
-- `patchApi-keysByIdRevoke()` - Update revoke
-- `patchApi-keysByIdRotate()` - Update rotate
-- `patchApi-keysByIdSet-budget()` - Update set budget
-- `deleteApi-keysById()` - Delete api keys
-
-## Applications
-
-- `getApplications()` - List applications
-- `getApplicationsBy-slugBySlug()` - Get by slug
-- `getApplicationsById()` - Get applications
-- `getApplicationsCurrent()` - List current
-- `postApplications()` - Create applications
-- `patchApplicationsById()` - Update applications
-- `patchApplicationsByIdAllocate-credits()` - Update allocate credits
-- `patchApplicationsByIdGrant-credits()` - Update grant credits
-- `deleteApplicationsById()` - Delete applications
-
-## Audit-log
-
-- `getAudit-logs()` - List audit logs
-- `getAudit-logsActivity()` - List activity
-
-## Billing
-
-- `getCredit-packages()` - List credit packages
-- `getCredit-packagesById()` - Get credit packages
-- `getCredit-packagesSlugBySlug()` - Get slug
-- `getPlans()` - List plans
-- `getPlansById()` - Get plans
-- `getPlansSlugBySlug()` - Get slug
-- `getWallet()` - List wallet
-- `getWalletPlanPreview()` - List preview
-- `postPayments()` - Create payments
-- `patchWalletAddons()` - Update addons
-- `patchWalletAddonsByAddonSlugCancel()` - Update cancel
-- `patchWalletAuto-top-up()` - Update auto top up
-- `patchWalletCredits()` - Update credits
-- `patchWalletPlan()` - Update plan
-
-## Bulk dismissal result
-
-- `postWorkspacesByWorkspaceIdExtractionDocumentsDismiss-all-trained()` - Create dismiss all trained
-
-## Bulk reprocess result
-
-- `postExtractionDocumentsBulk-reprocess()` - Create bulk reprocess
-
-## Config
-
-- `getConfigs()` - List configs
-- `postConfigs()` - Create configs
-- `patchConfigsByKey()` - Update configs
-
-## Config enum
-
-- `getExtractionConfig-enums()` - List config enums
-- `getExtractionConfig-enumsById()` - Get config enums
-- `postExtractionConfig-enums()` - Create config enums
-- `patchExtractionConfig-enumsById()` - Update config enums
-
-## Consent record
-
-- `getConsent-records()` - List consent records
-- `getConsent-recordsActive()` - List active
-- `getConsent-recordsById()` - Get consent records
-- `postConsent-records()` - Create consent records
-- `patchConsent-recordsByIdWithdraw()` - Update withdraw
-
-## Conversations
-
-- `getAiConversations()` - List conversations
-- `getAiConversationsById()` - Get conversations
-- `postAiConversations()` - Create conversations
-- `patchAiConversationsById()` - Update conversations
-- `deleteAiConversationsById()` - Delete conversations
-
-## Document chunk
-
-- `getAiChunksDocumentByDocumentId()` - Get document
-- `postAiChunksSearch()` - Create search
-
-## Document Extraction
-
-- `getExtractionDocuments()` - List documents
-- `getExtractionDocumentsById()` - Get documents
-- `getExtractionDocumentsByIdStatus()` - Get status
-- `getExtractionDocumentsByIdView()` - Get view
-- `getExtractionDocumentsWorkspaceByWorkspaceId()` - Get workspace
-- `getExtractionDocumentsWorkspaceByWorkspaceIdBy-statusByStatus()` - Get by status
-- `getExtractionDocumentsWorkspaceByWorkspaceIdExcluded()` - Get excluded
-- `getExtractionDocumentsWorkspaceByWorkspaceIdReview-queue()` - Get review queue
-- `getExtractionDocumentsWorkspaceByWorkspaceIdTrained()` - Get trained
-- `getExtractionDocumentsWorkspaceByWorkspaceIdTrashed()` - Get trashed
-- `postExtractionDocumentsBegin-upload()` - Create begin upload
-- `postExtractionDocumentsFind-or-begin-upload()` - Create find or begin upload
-- `postExtractionDocumentsUpload()` - Create upload
-- `patchExtractionDocumentsByIdCancel()` - Update cancel
-- `patchExtractionDocumentsByIdDismiss()` - Update dismiss
-- `patchExtractionDocumentsByIdDismiss-training()` - Update dismiss training
-- `patchExtractionDocumentsByIdExclude()` - Update exclude
-- `patchExtractionDocumentsByIdFinish-upload()` - Update finish upload
-- `patchExtractionDocumentsByIdInclude()` - Update include
-- `patchExtractionDocumentsByIdMark-trained()` - Update mark trained
-- `patchExtractionDocumentsByIdReprocess()` - Update reprocess
-- `patchExtractionDocumentsByIdRestore()` - Update restore
-- `patchExtractionDocumentsByIdStatus()` - Update status
-- `patchExtractionDocumentsByIdVerification()` - Update verification
-- `deleteExtractionDocumentsById()` - Delete documents
-
-## Document stats
-
-- `getDocumentsStats()` - List stats
-
-## Email template
-
-- `getApplicationsByApplicationIdEmail-templates()` - Get email templates
-- `getApplicationsByApplicationIdEmail-templatesBySlug()` - Get email templates
-- `postApplicationsByApplicationIdEmail-templates()` - Create email templates
-- `postApplicationsByApplicationIdEmail-templatesBySlugPreview()` - Create preview
-- `postApplicationsByApplicationIdEmail-templatesBySlugTest()` - Create test
-- `patchApplicationsByApplicationIdEmail-templatesBySlug()` - Update email templates
-- `deleteApplicationsByApplicationIdEmail-templatesBySlug()` - Delete email templates
-
-## Embedding
-
-- `postAiEmbed()` - Create embed
-
-## Extraction Batches
-
-- `getExtractionBatchesById()` - Get batches
-- `getExtractionBatchesByIdUpload-urls()` - Get upload urls
-- `getExtractionBatchesWorkspaceByWorkspaceId()` - Get workspace
-- `postExtractionBatches()` - Create batches
-- `deleteExtractionBatchesById()` - Delete batches
-
-## Extraction export
-
-- `getWorkspacesByWorkspaceIdExtractionExports()` - Get exports
-- `getWorkspacesByWorkspaceIdExtractionExportsById()` - Get exports
-- `postWorkspacesByWorkspaceIdExtractionExports()` - Create exports
-
-## Extraction Results
-
-- `getExtractionResults()` - List results
-- `getExtractionResultsById()` - Get results
-- `getExtractionResultsDocumentByDocumentId()` - Get document
-- `getExtractionResultsDocumentByDocumentIdHistory()` - Get history
-- `getExtractionResultsWorkspaceByWorkspaceId()` - Get workspace
-- `patchExtractionResultsById()` - Update results
-- `patchExtractionResultsByIdRegenerate()` - Update regenerate
-- `patchExtractionResultsByIdSave-corrections()` - Update save corrections
-- `deleteExtractionResultsById()` - Delete results
-
-## Field mapping confirmation
-
-- `postWorkspacesByWorkspaceIdExtractionByDocumentIdMapping()` - Create mapping
-
-## Field mapping result
-
-- `getWorkspacesByWorkspaceIdExtractionByDocumentIdMapping()` - Get mapping
-
-## Field Templates
-
-- `getField-templates()` - List field templates
-- `getField-templatesById()` - Get field templates
-- `postField-templates()` - Create field templates
-- `deleteField-templatesById()` - Delete field templates
-
-## Invitations
-
-- `getInvitations()` - List invitations
-- `getInvitationsConsumeByToken()` - Get consume
-- `getInvitationsMe()` - List me
-- `postInvitations()` - Create invitations
-- `postInvitationsAccept-by-token()` - Create accept by token
-- `patchInvitationsByIdAccept()` - Update accept
-- `patchInvitationsByIdAccept-by-user()` - Update accept by user
-- `patchInvitationsByIdDecline()` - Update decline
-- `patchInvitationsByIdResend()` - Update resend
-- `patchInvitationsByIdRevoke()` - Update revoke
-
-## Invoice
-
-- `getWalletInvoices()` - List invoices
-
-## Knowledge Graph
-
-- `getAiGraphEdges()` - List edges
-- `getAiGraphNodes()` - List nodes
-- `getAiGraphNodesBySourceNodeIdRelated()` - Get related
-- `getAiGraphNodesLabelByLabel()` - Get label
-- `postAiGraphEdges()` - Create edges
-- `postAiGraphNodes()` - Create nodes
-- `deleteAiGraphEdgesById()` - Delete edges
-- `deleteAiGraphNodesById()` - Delete nodes
-
-## Legal acceptance
-
-- `getLegal-acceptances()` - List legal acceptances
-- `getLegal-acceptancesById()` - Get legal acceptances
-- `getLegal-acceptancesLatest()` - List latest
-
-## Legal document
-
-- `getLegal-documents()` - List legal documents
-- `getLegal-documentsBy-locale()` - List by locale
-- `getLegal-documentsById()` - Get legal documents
-- `getLegal-documentsFor-application()` - List for application
-- `postLegal-documents()` - Create legal documents
-- `patchLegal-documentsById()` - Update legal documents
-- `patchLegal-documentsByIdPublish()` - Update publish
-- `patchLegal-documentsByIdUnpublish()` - Update unpublish
-- `deleteLegal-documentsById()` - Delete legal documents
-
-## Messages
-
-- `getAiMessages()` - List messages
-- `getMessages()` - List messages
-- `getMessagesById()` - Get messages
-- `getMessagesSearch()` - List search
-- `getMessagesSemantic-search()` - List semantic search
-- `getThreadsByIdMessages()` - Get messages
-- `postAiMessages()` - Create messages
-- `postMessages()` - Create messages
-- `patchMessagesById()` - Update messages
-- `deleteAiMessagesById()` - Delete messages
-- `deleteMessagesById()` - Delete messages
-
-## Notification log
-
-- `getNotification-logs()` - List notification logs
-- `getNotification-logsById()` - Get notification logs
-- `getNotification-logsStats()` - List stats
-
-## Notification method
-
-- `getNotification-methods()` - List notification methods
-- `getNotification-methodsById()` - Get notification methods
-- `postNotification-methods()` - Create notification methods
-- `patchNotification-methodsById()` - Update notification methods
-- `patchNotification-methodsByIdSend-verification()` - Update send verification
-- `patchNotification-methodsByIdSet-primary()` - Update set primary
-- `patchNotification-methodsByIdVerify()` - Update verify
-- `deleteNotification-methodsById()` - Delete notification methods
-
-## Notification preference
-
-- `getNotification-preferences()` - List notification preferences
-- `getNotification-preferencesById()` - Get notification preferences
-- `postNotification-preferences()` - Create notification preferences
-- `patchNotification-preferencesById()` - Update notification preferences
-- `deleteNotification-preferencesById()` - Delete notification preferences
-
-## Operation success
-
-- `postDocumentsBulk-delete()` - Create bulk delete
-
-## Payment method
-
-- `getPayment-methods()` - List payment methods
-- `getPayment-methodsById()` - Get payment methods
-- `postPayment-methods()` - Create payment methods
-- `postPayment-methodsTokenize()` - Create tokenize
-- `patchPayment-methodsById()` - Update payment methods
-- `patchPayment-methodsByIdDefault()` - Update default
-- `deletePayment-methodsById()` - Delete payment methods
-
-## Permission
-
-- `getPermissions()` - List permissions
-- `getPermissionsById()` - Get permissions
-- `getPermissionsPresets()` - List presets
-
-## Permission meta
-
-- `getPermissionsMeta()` - List meta
-
-## Permission preset
-
-- `getPermissionsPresetsById()` - Get presets
-
-## Presigned url
-
-- `postDocumentsPresigned-upload()` - Create presigned upload
-- `postStorageSign-download()` - Create sign download
-- `postStorageSign-upload()` - Create sign upload
-
-## Role
-
-- `getRoles()` - List roles
-- `postRoles()` - Create roles
-- `patchRolesById()` - Update roles
-- `deleteRolesById()` - Delete roles
-
-## Schema discovery
-
-- `getExtractionSchema-discoveriesById()` - Get schema discoveries
-- `postExtractionSchema-discoveries()` - Create schema discoveries
-
-## Search
-
-- `getSearch()` - List search
-- `getSearchHealth()` - List health
-- `getSearchIndexes()` - List indexes
-- `getSearchSaved()` - List saved
-- `getSearchSemantic()` - List semantic
-- `getSearchStats()` - List stats
-- `getSearchStatus()` - List status
-- `getSearchSuggest()` - List suggest
-- `postAiSearch()` - Create search
-- `postAiSearchAdvanced()` - Create advanced
-- `postSearchBatch()` - Create batch
-- `postSearchReindex()` - Create reindex
-- `postSearchSaved()` - Create saved
-- `postSearchSavedByIdRun()` - Create run
-- `patchSearchSavedById()` - Update saved
-- `deleteSearchSavedById()` - Delete saved
-
-## Search analytics
-
-- `getSearchAnalytics()` - List analytics
-- `getSearchAnalyticsSummary()` - List summary
-
-## Storage
-
-- `getBuckets()` - List buckets
-- `getBucketsAll()` - List all
-- `getBucketsById()` - Get buckets
-- `getBucketsByIdObjects()` - Get objects
-- `getBucketsByIdStats()` - Get stats
-- `getObjects()` - List objects
-- `getObjectsById()` - Get objects
-- `postBuckets()` - Create buckets
-- `postObjectsBulk-destroy()` - Create bulk destroy
-- `postObjectsCopy()` - Create copy
-- `postObjectsMove()` - Create move
-- `postObjectsRegister()` - Create register
-- `patchBucketsById()` - Update buckets
-- `deleteBucketsById()` - Delete buckets
-- `deleteObjectsById()` - Delete objects
-
-## Storage stats
-
-- `getStorageStats()` - List stats
-- `getStorageStatsTenantByTenantId()` - Get tenant
-
-## Tenant document stats
-
-- `getTenantsByTenantIdDocumentStats()` - Get document stats
-
-## Tenant stats
-
-- `getTenantsByTenantIdStats()` - Get stats
-
-## Tenant-membership
-
-- `getTenant-memberships()` - List tenant memberships
-- `postTenant-memberships()` - Create tenant memberships
-- `patchTenant-membershipsByTenantIdByUserId()` - Update tenant memberships
-- `deleteTenant-membershipsByTenantIdByUserId()` - Delete tenant memberships
-
-## Tenants
-
-- `getTenants()` - List tenants
-- `getTenantsById()` - Get tenants
-- `postTenants()` - Create tenants
-- `postTenantsByIdBuy-storage()` - Create buy storage
-- `postTenantsByIdCredit()` - Create credit
-- `postTenantsByIdRemove-storage()` - Create remove storage
-- `postTenantsByIdSchedule-purge()` - Create schedule purge
-- `postTenantsIsv()` - Create isv
-- `patchTenantsById()` - Update tenants
-- `deleteTenantsById()` - Delete tenants
-
-## Thread stats
-
-- `getThreadsStats()` - List stats
-
-## Thread workspace stats
-
-- `getThreadsWorkspace-stats()` - List workspace stats
-
-## Threads
-
-- `getThreads()` - List threads
-- `getThreadsById()` - Get threads
-- `getThreadsSearch()` - List search
-- `postThreads()` - Create threads
-- `postThreadsActive()` - Create active
-- `postThreadsByIdExport()` - Create export
-- `postThreadsByIdFork()` - Create fork
-- `postThreadsByIdMessages()` - Create messages
-- `postThreadsByIdSummarize()` - Create summarize
-- `patchThreadsById()` - Update threads
-- `patchThreadsByIdArchive()` - Update archive
-- `patchThreadsByIdUnarchive()` - Update unarchive
-- `deleteThreadsById()` - Delete threads
-
-## Token
-
-- `postTokens()` - Create tokens
-
-## Training analytics
-
-- `getWorkspacesAnalytics-batch()` - List analytics batch
-- `getWorkspacesByWorkspaceIdTrainingAnalytics()` - Get analytics
-
-## Transaction
-
-- `getTransactions()` - List transactions
-- `getTransactionsById()` - Get transactions
-
-## Users
-
-- `getUser-profiles()` - List user profiles
-- `getUser-profilesById()` - Get user profiles
-- `getUser-profilesMe()` - List me
-- `getUsers()` - List users
-- `getUsersBy-email()` - List by email
-- `getUsersById()` - Get users
-- `getUsersMe()` - List me
-- `getUsersMeActivity()` - List activity
-- `getUsersMeDashboard()` - List dashboard
-- `getUsersMeStats()` - List stats
-- `getUsersMeTenants()` - List tenants
-- `postUser-profiles()` - Create user profiles
-- `postUsersAuthConfirm()` - Create confirm
-- `postUsersAuthLogin()` - Create login
-- `postUsersAuthMagic-linkLogin()` - Create login
-- `postUsersAuthMagic-linkRequest()` - Create request
-- `postUsersAuthRegister()` - Create register
-- `postUsersAuthRegister-with-oidc()` - Create register with oidc
-- `postUsersAuthResend-confirmation()` - Create resend confirmation
-- `postUsersRegister-isv()` - Create register isv
-- `patchUser-profilesById()` - Update user profiles
-- `patchUser-profilesByIdAccept-tos()` - Update accept tos
-- `patchUser-profilesByIdDismiss-announcement()` - Update dismiss announcement
-- `patchUser-profilesByIdDismiss-welcome()` - Update dismiss welcome
-- `patchUsersAuthPasswordChange()` - Update change
-- `patchUsersAuthReset-password()` - Update reset password
-- `patchUsersById()` - Update admin
-- `patchUsersByIdConfirm-email()` - Update confirm email
-- `patchUsersByIdEmail()` - Update email
-- `patchUsersByIdReset-password()` - Update reset password
-- `deleteUser-profilesById()` - Delete user profiles
-- `deleteUsersById()` - Delete users
-
-## Watcher claim
-
-- `getWatcherClaims()` - List claims
-- `getWatcherClaimsById()` - Get claims
-- `getWatcherClaimsHistory()` - List history
-- `getWatcherClaimsStatus()` - List status
-- `postWatcherClaims()` - Create claims
-- `patchWatcherClaimsById()` - Update claims
-- `patchWatcherClaimsByIdRelease()` - Update release
-- `patchWatcherClaimsByIdRetry()` - Update retry
-
-## Watcher event
-
-- `getWatcherEvents()` - List events
-- `getWatcherEventsById()` - Get events
-- `postWatcherEvents()` - Create events
-
-## Webhooks
-
-- `getWebhook-configs()` - List webhook configs
-- `getWebhook-configsById()` - Get webhook configs
-- `getWebhook-configsByIdEvents()` - Get events
-- `getWebhook-configsStats()` - List stats
-- `getWebhook-deliveries()` - List webhook deliveries
-- `getWebhook-deliveriesById()` - Get webhook deliveries
-- `getWebhook-deliveriesStats()` - List stats
-- `postWebhook-configs()` - Create webhook configs
-- `postWebhook-configsBulk-disable()` - Create bulk disable
-- `postWebhook-configsBulk-enable()` - Create bulk enable
-- `postWebhook-configsByIdReplay()` - Create replay
-- `postWebhook-configsByIdTest()` - Create test
-- `postWebhook-deliveriesBulk-retry()` - Create bulk retry
-- `postWebhook-deliveriesByIdRetry()` - Create retry
-- `patchWebhook-configsById()` - Update webhook configs
-- `patchWebhook-configsByIdRotate-secret()` - Update rotate secret
-- `deleteWebhook-configsById()` - Delete webhook configs
-
-## Workspace document stats
-
-- `getTenantsByTenantIdWorkspaceStats()` - Get workspace stats
-
-## Workspace-membership
-
-- `getWorkspace-memberships()` - List workspace memberships
-- `getWorkspace-membershipsInherited()` - List inherited
-- `getWorkspacesByIdMembers()` - Get members
-- `postWorkspace-memberships()` - Create workspace memberships
-- `patchWorkspace-membershipsByWorkspaceIdByUserId()` - Update workspace memberships
-- `deleteWorkspace-membershipsByWorkspaceIdByUserId()` - Delete workspace memberships
-
-## Workspaces
-
-- `getWorkspaces()` - List workspaces
-- `getWorkspacesById()` - Get workspaces
-- `getWorkspacesMine()` - List mine
-- `getWorkspacesShared()` - List shared
-- `postWorkspaces()` - Create workspaces
-- `patchWorkspacesById()` - Update workspaces
-- `patchWorkspacesByIdAllocate()` - Update allocate
-- `patchWorkspacesByIdPopulate-hashes()` - Update populate hashes
-- `patchWorkspacesByIdStorage-settings()` - Update storage settings
-- `deleteWorkspacesById()` - Delete workspaces
+## Configuration
+
+```typescript
+new GptClient({
+  baseUrl: string,             // API base URL (or env GPTCORE_BASE_URL)
+  apiKey?: string,             // API key (or env GPTCORE_API_KEY)
+  token?: string,              // JWT token (or env GPTCORE_TOKEN)
+  apiVersion?: string,         // Default: '2025-12-03'
+  timeout?: number,            // Request timeout in ms
+  fetch?: typeof fetch,        // Custom fetch implementation
+  defaultHeaders?: Record<string, string>,
+  dangerouslyAllowBrowser?: boolean,  // Allow API key in browser
+  logLevel?: 'debug' | 'info' | 'warn' | 'error' | 'none',
+  logger?: Logger,             // Custom logger (console API)
+  appInfo?: { name: string, version?: string, url?: string },
+  retry?: { maxRetries, initialDelay, maxDelay } | false,
+  security?: { requireHttps?: boolean },
+})
+```
+
+## Authentication
+
+```typescript
+// API key auth (machine-to-machine)
+const client = new GptClient({ baseUrl, apiKey: 'sk_app_...' });
+
+// JWT auth (user sessions)
+const client = new GptClient({ baseUrl, token: 'eyJ...' });
+
+// Login and update token
+const result = await client.identity.login(email, password);
+client.setToken(result.token);
+```
+
+## Namespaces
+
+### identity
+
+```typescript
+client.identity.login(email, password)
+client.identity.register(email, password, passwordConfirmation)
+client.identity.confirm(token)
+client.identity.resendConfirmation(email)
+client.identity.requestMagicLink(email)
+client.identity.magicLinkLogin(token)
+client.identity.changePassword(currentPassword, newPassword, newPasswordConfirmation)
+client.identity.resetPassword(token, password, passwordConfirmation)
+client.identity.me()
+client.identity.profile()
+client.identity.updateProfile(attributes)
+client.identity.acceptTos()
+client.identity.stats()
+client.identity.dashboard()
+client.identity.activity()
+client.identity.tenants()
+
+// API Keys
+client.identity.apiKeys.list()
+client.identity.apiKeys.active()
+client.identity.apiKeys.get(id)
+client.identity.apiKeys.create(name)
+client.identity.apiKeys.revoke(id)
+client.identity.apiKeys.rotate(id)
+client.identity.apiKeys.allocate(id, credits, reason?)
+client.identity.apiKeys.setBudget(id, budget)
+client.identity.apiKeys.stats()
+```
+
+### platform
+
+```typescript
+// Workspaces
+client.platform.workspaces.list()
+client.platform.workspaces.create(name, slug)
+client.platform.workspaces.get(id)
+client.platform.workspaces.update(id, attributes)
+client.platform.workspaces.delete(id)
+client.platform.workspaces.mine()
+client.platform.workspaces.shared()
+client.platform.workspaces.members(id)
+client.platform.workspaces.allocate(id, credits)
+
+// Applications
+client.platform.applications.list()
+client.platform.applications.create(attributes)
+client.platform.applications.get(id)
+client.platform.applications.getBySlug(slug)
+client.platform.applications.current()
+client.platform.applications.update(id, attributes)
+client.platform.applications.delete(id)
+
+// Tenants
+client.platform.tenants.list()
+client.platform.tenants.get(id)
+client.platform.tenants.stats(id)
+
+// Invitations
+client.platform.invitations.list()
+client.platform.invitations.mine()
+client.platform.invitations.create(email, role, scopeType, scopeId)
+client.platform.invitations.accept(id)
+client.platform.invitations.decline(id)
+client.platform.invitations.revoke(id)
+client.platform.invitations.resend(id)
+
+// Memberships
+client.platform.memberships.list()
+client.platform.memberships.create(workspaceId, userId, roleId)
+
+// Roles
+client.platform.roles.list()
+```
+
+### agents
+
+```typescript
+client.agents.list()
+client.agents.create(name, systemPrompt, attributes?)
+client.agents.get(id)
+client.agents.update(id, attributes)
+client.agents.delete(id)
+client.agents.test(id, input)
+client.agents.clone(id)
+client.agents.export(id)
+client.agents.import(data)
+client.agents.validate(id)
+client.agents.stats(id)
+client.agents.usage(id)
+
+// Versions
+client.agents.versions.list(agentId)
+client.agents.versions.get(id)
+client.agents.versions.publish(agentId, attributes?)
+client.agents.versions.restore(agentId, versionId)
+client.agents.versions.metrics(id)
+
+// Training
+client.agents.training.examples(agentId)
+client.agents.training.stats(agentId)
+```
+
+### extraction
+
+```typescript
+// Documents
+client.extraction.documents.list()
+client.extraction.documents.get(id)
+client.extraction.documents.view(id)
+client.extraction.documents.upload(file)
+client.extraction.documents.beginUpload(attributes)
+client.extraction.documents.findOrBeginUpload(attributes)
+client.extraction.documents.finishUpload(id)
+client.extraction.documents.delete(id)
+client.extraction.documents.bulkDelete(ids)
+client.extraction.documents.reprocess(id)
+client.extraction.documents.bulkReprocess(ids)
+client.extraction.documents.status(id)
+client.extraction.documents.cancel(id)
+client.extraction.documents.stats()
+
+// Results
+client.extraction.results.list()
+client.extraction.results.get(id)
+client.extraction.results.byDocument(documentId)
+
+// Batches
+client.extraction.batches.create(attributes)
+client.extraction.batches.get(id)
+
+// Exports
+client.extraction.exports.list(workspaceId)
+client.extraction.exports.create(workspaceId, attributes)
+```
+
+### ai
+
+```typescript
+client.ai.search(query, options?)
+client.ai.searchAdvanced(query, options?)
+client.ai.embed(text)
+
+// Conversations
+client.ai.conversations.list()
+client.ai.conversations.create(attributes)
+client.ai.conversations.get(id)
+client.ai.conversations.update(id, attributes)
+client.ai.conversations.delete(id)
+
+// Messages
+client.ai.messages.list()
+client.ai.messages.create(attributes)
+client.ai.messages.delete(id)
+```
+
+### billing
+
+```typescript
+// Wallet
+client.billing.wallet.get()
+client.billing.wallet.updateCredits(attributes)
+client.billing.wallet.updatePlan(planSlug)
+client.billing.wallet.planPreview()
+client.billing.wallet.autoTopUp(attributes)
+client.billing.wallet.addons(attributes)
+client.billing.wallet.invoices()
+
+// Plans
+client.billing.plans.list()
+client.billing.plans.get(id)
+client.billing.plans.getBySlug(slug)
+
+// Transactions
+client.billing.transactions.list()
+client.billing.transactions.get(id)
+
+// Credit Packages
+client.billing.creditPackages.list()
+client.billing.creditPackages.get(id)
+
+// Payment Methods
+client.billing.paymentMethods.list()
+client.billing.paymentMethods.create(attributes)
+client.billing.paymentMethods.get(id)
+client.billing.paymentMethods.delete(id)
+client.billing.paymentMethods.setDefault(id)
+```
+
+### storage
+
+```typescript
+// Buckets
+client.storage.buckets.list()
+client.storage.buckets.all()
+client.storage.buckets.create(name, type)
+client.storage.buckets.get(id)
+client.storage.buckets.update(id, attributes)
+client.storage.buckets.delete(id)
+client.storage.buckets.stats(id)
+client.storage.buckets.objects(id)
+
+// Objects
+client.storage.objects.list()
+client.storage.objects.get(id)
+client.storage.objects.delete(id)
+client.storage.objects.register(attributes)
+
+// Presigned URLs
+client.storage.signUpload(filename, contentType)
+client.storage.signDownload(objectId)
+
+// Stats
+client.storage.stats()
+```
+
+### webhooks
+
+```typescript
+// Configs
+client.webhooks.configs.list()
+client.webhooks.configs.create(url, events, attributes?)
+client.webhooks.configs.get(id)
+client.webhooks.configs.update(id, attributes)
+client.webhooks.configs.delete(id)
+client.webhooks.configs.test(id)
+client.webhooks.configs.rotateSecret(id)
+client.webhooks.configs.stats()
+
+// Deliveries
+client.webhooks.deliveries.list()
+client.webhooks.deliveries.get(id)
+client.webhooks.deliveries.retry(id)
+client.webhooks.deliveries.stats()
+```
+
+### search
+
+```typescript
+client.search.query(q, options?)
+client.search.semantic(q, options?)
+client.search.suggest(q)
+client.search.batch(queries)
+client.search.reindex()
+client.search.indexes()
+client.search.stats()
+client.search.health()
+client.search.status()
+client.search.analytics()
+client.search.analyticsSummary()
+
+// Saved Searches
+client.search.saved.list()
+client.search.saved.create(attributes)
+client.search.saved.delete(id)
+client.search.saved.run(id)
+```
+
+### threads
+
+```typescript
+client.threads.list()
+client.threads.create(title?, attributes?)
+client.threads.get(id)
+client.threads.update(id, attributes)
+client.threads.delete(id)
+client.threads.archive(id)
+client.threads.unarchive(id)
+client.threads.export(id)
+client.threads.fork(id)
+client.threads.summarize(id)
+client.threads.search(query)
+client.threads.stats()
+
+// Messages
+client.threads.messages.list(threadId)
+client.threads.messages.send(threadId, content, attributes?)
+```
+
+### communication
+
+```typescript
+// Notification Logs
+client.communication.notifications.logs()
+client.communication.notifications.logById(id)
+client.communication.notifications.logStats()
+
+// Notification Methods
+client.communication.notifications.methods.list()
+client.communication.notifications.methods.get(id)
+client.communication.notifications.methods.create(attributes)
+client.communication.notifications.methods.update(id, attributes)
+client.communication.notifications.methods.delete(id)
+client.communication.notifications.methods.verify(id)
+client.communication.notifications.methods.setPrimary(id)
+
+// Notification Preferences
+client.communication.notifications.preferences.list()
+client.communication.notifications.preferences.get(id)
+client.communication.notifications.preferences.create(attributes)
+client.communication.notifications.preferences.update(id, attributes)
+```
+
+## Webhook Signature Verification
+
+```typescript
+import { Webhooks } from '@gpt-core/client';
+
+const wh = new Webhooks('whsec_your_secret');
+
+// In your webhook handler:
+try {
+  await wh.verify(rawBody, req.headers['x-gptcore-signature']);
+  // Signature valid, process webhook
+} catch (err) {
+  // Invalid signature
+}
+```
 
 ## Error Handling
 
-All functions return a Promise that resolves with `{ data, error, response }`.
+```typescript
+import {
+  AuthenticationError,
+  AuthorizationError,
+  NotFoundError,
+  ValidationError,
+  RateLimitError,
+  ServerError,
+} from '@gpt-core/client';
+
+try {
+  await client.identity.login(email, password);
+} catch (error) {
+  if (error instanceof AuthenticationError) { /* ... */ }
+  if (error instanceof ValidationError) { /* error.errors */ }
+  if (error instanceof RateLimitError) { /* error.retryAfter */ }
+}
+```
+
+## Raw Functions
+
+All 403+ generated functions are also available as named exports for power users:
 
 ```typescript
-const { data, error } = await getAgents();
-if (error) {
-  console.error(error.status, error.detail);
-} else {
-  console.log(data);
-}
+import { getAgents, postUsersAuthLogin } from '@gpt-core/client';
+
+const { data, error } = await getAgents({ client: myClient });
 ```
 
 ## Types
 
-All types are exported:
-
 ```typescript
-import type { Agent, Workspace, Document } from '@gpt-core/client';
+import type { BaseClientConfig, AppInfo, Logger, LogLevel, RequestOptions } from '@gpt-core/client';
 ```

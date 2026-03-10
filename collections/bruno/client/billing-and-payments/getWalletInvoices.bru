@@ -1,0 +1,22 @@
+meta {
+  name: List invoices
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/wallet/invoices
+  body: none
+  auth: inherit
+}
+
+query {
+  ~filter: 
+  ~sort: 
+  ~include: 
+  ~fields: 
+}
+
+docs {
+  Read all invoices for the current tenant
+}

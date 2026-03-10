@@ -1,0 +1,39 @@
+meta {
+  name: Update claims
+  type: http
+  seq: 1
+}
+
+patch {
+  url: {{baseUrl}}/watcher/claims/{id}
+  body: json
+  auth: inherit
+}
+
+query {
+  ~include: 
+  ~fields: 
+}
+
+body:json {
+  {
+    "data": {
+      "attributes": {
+        "document_id": null,
+        "error_message": null,
+        "status": null
+      },
+      "id": "string",
+      "relationships": {},
+      "type": null
+    }
+  }
+}
+
+docs {
+  Updates specific fields of an existing resource.
+
+**Authentication:** Required - Bearer token or API key
+**Rate Limit:** 100 requests per minute
+
+}

@@ -1,0 +1,36 @@
+meta {
+  name: Update auto top up
+  type: http
+  seq: 1
+}
+
+patch {
+  url: {{baseUrl}}/wallet/auto-top-up
+  body: json
+  auth: inherit
+}
+
+query {
+  ~include: 
+  ~fields: 
+}
+
+body:json {
+  {
+    "data": {
+      "attributes": {
+        "amount": null,
+        "enabled": true,
+        "package_id": null,
+        "threshold": null
+      },
+      "id": "string",
+      "relationships": {},
+      "type": null
+    }
+  }
+}
+
+docs {
+  Update auto-top-up settings
+}

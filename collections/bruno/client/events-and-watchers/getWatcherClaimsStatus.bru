@@ -1,0 +1,19 @@
+meta {
+  name: List status
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/watcher/claims/status
+  body: none
+  auth: inherit
+}
+
+query {
+  workspace_id: 
+}
+
+docs {
+  Get watcher status for a workspace
+}

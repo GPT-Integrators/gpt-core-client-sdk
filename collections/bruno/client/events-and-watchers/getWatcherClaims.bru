@@ -1,0 +1,28 @@
+meta {
+  name: List claims
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/watcher/claims
+  body: none
+  auth: inherit
+}
+
+query {
+  ~filter: 
+  ~sort: 
+  ~include: 
+  ~fields: 
+  workspace_id: 
+  ~status: 
+}
+
+docs {
+  Lists resources with optional filtering, sorting, and pagination.
+
+**Authentication:** Required - Bearer token or API key
+**Rate Limit:** 100 requests per minute
+
+}
