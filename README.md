@@ -31,16 +31,6 @@ console.log(result.data);
 - **[API Reference](https://gpt-integrators.github.io/gpt-core-client-sdk/docs/client)** - Interactive API docs with Try It
 - **[Quick Start Guide](https://gpt-integrators.github.io/gpt-core-client-sdk/quickstart)** - Getting started guide
 
-## Tooling
-
-Download API collections for your preferred client:
-
-| Tool | Download |
-|------|----------|
-| [Postman](https://www.postman.com) | [Download Collection](https://gpt-integrators.github.io/gpt-core-client-sdk/collections/postman/gpt-core-client.postman_collection.json) |
-| [Bruno](https://www.usebruno.com) | [Browse on GitHub](https://github.com/GPT-Integrators/gpt-core-client-sdk/tree/main/collections/bruno/client) |
-| [Insomnia](https://insomnia.rest) | [Download Collection](https://gpt-integrators.github.io/gpt-core-client-sdk/collections/insomnia/gpt-core-client.insomnia.json) |
-
 ## Packages
 
 | Package | Version | Description |

@@ -95,7 +95,6 @@ try {
 ## Next Steps
 
 - [Full API Documentation](https://gpt-integrators.github.io/gpt-core-client-sdk/docs/client)
-- [API Collections](https://gpt-integrators.github.io/gpt-core-client-sdk/collections) for Postman/Bruno/Insomnia
 
 ## Need Help?
 
